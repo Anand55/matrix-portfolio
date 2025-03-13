@@ -71,3 +71,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@keyframes twinkle {
+  0% { border-color: #0F0; box-shadow: 0px 0px 10px #0F0; }
+  50% { border-color: rgba(0, 255, 0, 0.5); box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.5); }
+  100% { border-color: #0F0; box-shadow: 0px 0px 10px #0F0; }
+}
+
