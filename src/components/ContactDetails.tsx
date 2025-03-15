@@ -3,36 +3,35 @@ import { motion } from "framer-motion";
 
 const typingSound = new Audio("/typing.mp3");
 
-const personalInfo = `Name: Anand Toshniwal
-Location: Pune
-Email: anandtoshniwal5@gmail.com
+const contactInfo = `Email: anandtoshniwal5@gmail.com
 Phone: +91 84128 23372
 GitHub: https://www.github.com/Anand55
 LinkedIn: https://www.linkedin.com/in/anand-toshniwal-b07a3713b/`;
 
-const PersonalDetails = ({ onClose }: { onClose: () => void }) => {
+const ContactDetails = ({ onClose }: { onClose: () => void }) => {
   const [displayText, setDisplayText] = useState<string>("");
   const [index, setIndex] = useState(0);
   const [showFull, setShowFull] = useState(false);
-  const [showButton, setShowButton] = useState(true);
+  const [hideButton, setHideButton] = useState(false);
 
   useEffect(() => {
     if (showFull) {
-      setDisplayText(personalInfo);
-      setShowButton(false);
+      setDisplayText(contactInfo);
+      setHideButton(true); // Hide button immediately
       return;
     }
+
     let timeout: ReturnType<typeof setTimeout>;
     typingSound.play();
 
     const typeText = () => {
-      if (index < personalInfo.length) {
-        setDisplayText((prev) => prev + personalInfo[index]);
+      if (index < contactInfo.length) {
+        setDisplayText((prev) => prev + contactInfo[index]);
         setIndex(index + 1);
         timeout = setTimeout(typeText, 50);
       } else {
         typingSound.pause();
-        setShowButton(false);
+        setHideButton(true); // Hide button once typing is complete
       }
     };
 
@@ -66,9 +65,12 @@ const PersonalDetails = ({ onClose }: { onClose: () => void }) => {
         position: "relative",
       }}
     >
-      {showButton && (
+      {!hideButton && (
         <button
-          onClick={() => setShowFull(true)}
+          onClick={() => {
+            setShowFull(true);
+            setHideButton(true); // Ensure button is hidden when clicked
+          }}
           style={{
             position: "absolute",
             bottom: "10px",
@@ -90,4 +92,4 @@ const PersonalDetails = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
-export default PersonalDetails;
+export default ContactDetails;

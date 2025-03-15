@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import InfoWindow from "./InfoWindow";
+import PersonalDetails from "./PersonalDetails";
+import Experience from "./Experience";
+import Projects from "./Projects";
+import Skills from "./skills";
+import ContactDetails from "./ContactDetails";
+
+
 
 const blocks = [
   { id: 1, title: "Personal Details" },
@@ -151,12 +158,17 @@ const Blocks: React.FC = () => {
         </div>
       </div>
 
-      {/* Info Window */}
-      {selectedBlock && (
-        <InfoWindow title={selectedBlock} onClose={() => setSelectedBlock(null)}>
-          Content for {selectedBlock} goes here.
-        </InfoWindow>
-      )}
+     {/* Info Window */}
+{selectedBlock && (
+  <InfoWindow title={selectedBlock} onClose={() => setSelectedBlock(null)}>
+    {selectedBlock === "Personal Details" && <PersonalDetails onClose={() => setSelectedBlock(null)} />}
+    {selectedBlock === "Experience" && <Experience onClose={() => setSelectedBlock(null)} />}
+    {selectedBlock === "Skills & Tech Stack" && <Skills onClose={() => setSelectedBlock(null)} />}
+    {selectedBlock === "Projects" && <Projects onClose={() => setSelectedBlock(null)} />}
+    {selectedBlock === "Contact Details" && <ContactDetails onClose={() => setSelectedBlock(null)} />}
+  </InfoWindow>
+)}
+
     </>
   );
 };

@@ -38,11 +38,11 @@ const InfoWindow: React.FC<InfoWindowProps> = ({ title, onClose, children }) => 
           borderRadius: "5px",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          position: "relative", // Keeps title bar inside
+          position: "relative",
+          overflow: "hidden", // Prevents content from overflowing
         }}
       >
-        {/* ✅ Fixed Title Bar - Stays Inside Window */}
+        {/* ✅ Fixed Title Bar */}
         <div
           style={{
             position: "absolute",
@@ -60,9 +60,10 @@ const InfoWindow: React.FC<InfoWindowProps> = ({ title, onClose, children }) => 
             alignItems: "center",
             justifyContent: "space-between",
             boxSizing: "border-box",
+            zIndex: 1000, // Ensures title bar is always visible
           }}
         >
-          <span style={{ paddingLeft: "8px" }}>▣ {title}</span> {/* ✅ Adds Space from Left */}
+          <span style={{ paddingLeft: "8px" }}>▣ {title}</span>
           <span
             onClick={onClose}
             style={{
@@ -76,17 +77,14 @@ const InfoWindow: React.FC<InfoWindowProps> = ({ title, onClose, children }) => 
           </span>
         </div>
 
-        {/* ✅ Centered Content */}
+        {/* ✅ Scrollable Content */}
         <div
           style={{
             flex: 1,
             width: "100%",
-            textAlign: "center",
-            fontSize: "1.2rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             marginTop: "50px", // ✅ Moves content below title bar
+            overflowY: "auto", // ✅ Enables scrolling if content overflows
+            padding: "15px",
           }}
         >
           {children}
