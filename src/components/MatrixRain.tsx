@@ -90,7 +90,7 @@ const MatrixRain: React.FC<MatrixRainProps> = ({ onFinish }) => {
             textShadow: "0px 0px 5px #0F0",
           }}
         >
-          Welcome to the Matrix
+          Welcome to my Portfolio!
         </motion.div>
       )}
     </div>
