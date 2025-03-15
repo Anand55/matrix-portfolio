@@ -8,7 +8,7 @@ Phone: +91 84128 23372
 GitHub: https://www.github.com/Anand55
 LinkedIn: https://www.linkedin.com/in/anand-toshniwal-b07a3713b/`;
 
-const ContactDetails = ({ onClose }: { onClose: () => void }) => {
+  const ContactDetails = () => {
   const [displayText, setDisplayText] = useState<string>("");
   const [index, setIndex] = useState(0);
   const [showFull, setShowFull] = useState(false);

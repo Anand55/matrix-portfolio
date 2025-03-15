@@ -40,7 +40,7 @@ Software Engineer at NityaObject Software (September 2019 - July 2020)
 - Provided hands-on mentorship, fostering a structured learning path for junior engineers, boosting team efficiency.
 `;
 
-const Experience = ({ onClose }: { onClose: () => void }) => {
+const Experience = () => {
     const [displayText, setDisplayText] = useState<string>("");
     const [index, setIndex] = useState(0);
     const [showFull, setShowFull] = useState(false);

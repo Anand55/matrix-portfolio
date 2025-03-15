@@ -13,7 +13,7 @@ const skillsData = [
   ["Other Tools", "Git, Redis, RabbitMQ, Kafka"],
 ];
 
-const Skills = ({ onClose }: { onClose: () => void }) => {
+const Skills = () => {
   const [displayText, setDisplayText] = useState<string[]>([]);
   const [index, setIndex] = useState(0);
   const [showFull, setShowFull] = useState(false);

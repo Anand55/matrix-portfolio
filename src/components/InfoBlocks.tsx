@@ -161,12 +161,12 @@ const Blocks: React.FC = () => {
      {/* Info Window */}
 {selectedBlock && (
   <InfoWindow title={selectedBlock} onClose={() => setSelectedBlock(null)}>
-    {selectedBlock === "Personal Details" && <PersonalDetails onClose={() => setSelectedBlock(null)} />}
-    {selectedBlock === "Experience" && <Experience onClose={() => setSelectedBlock(null)} />}
-    {selectedBlock === "Skills & Tech Stack" && <Skills onClose={() => setSelectedBlock(null)} />}
-    {selectedBlock === "Projects" && <Projects onClose={() => setSelectedBlock(null)} />}
-    {selectedBlock === "Contact Details" && <ContactDetails onClose={() => setSelectedBlock(null)} />}
-  </InfoWindow>
+    {selectedBlock === "Personal Details" && <PersonalDetails />}
+    {selectedBlock === "Experience" && <Experience />}
+    {selectedBlock === "Skills & Tech Stack" && <Skills  />}
+    {selectedBlock === "Projects" && <Projects />}
+    {selectedBlock === "Contact Details" && <ContactDetails />}
+    </InfoWindow>
 )}
 
     </>

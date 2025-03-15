@@ -41,7 +41,7 @@ Products Worked On:
 
 `;
 
-const Projects = ({ onClose }: { onClose: () => void }) => {
+const Projects = () => {
   const [displayText, setDisplayText] = useState<string>("");
   const [index, setIndex] = useState(0);
   const [showFull, setShowFull] = useState(false);
