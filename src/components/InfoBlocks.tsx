@@ -123,6 +123,7 @@ const Blocks: React.FC = () => {
                 justifyContent: "center",
                 animation: "twinkle 0.8s infinite alternate"
               }}
+              onClick={() => setSelectedBlock(block.title)}
             >
               <div
                 style={{
